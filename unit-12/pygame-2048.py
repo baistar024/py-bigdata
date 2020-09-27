@@ -14,7 +14,19 @@ print(fields)
 new_element = 4 if randrange(100) > 89 else 2
 (i, j) = choice([(i, j) for i in range(4) for j in range(4) if fields[i][j] == 0])
 fields[i][j] = new_element
-print(fields)
+for field in fields:
+    print("-" * 50)
+    for cell in field:
+        print(cell, end = "    ")
+    print()
+    newrow = [i for i in field if i != 0]
+    newrow += [0 for i in range(len(field)-len(newrow))]
+
+    for cell in newrow:
+        print(cell, end= "    ")
+    print()
+
+
 
 class Game2048():
     def __init__(self, rows =4, column = 4, winvalue = 2048 ):
@@ -44,14 +56,14 @@ def initgame():
     screen.fill((233,233,233))
     pygame.display.update()
     return screen
-game = initgame()
-while True:
-    event = pygame.event.wait()
-    if event.type == pygame.QUIT:
-        pygame.quit()
-        exit()
-
-    pygame.display.update()
+# game = initgame()
+# while True:
+#     event = pygame.event.wait()
+#     if event.type == pygame.QUIT:
+#         pygame.quit()
+#         exit()
+#
+#     pygame.display.update()
 
 
 
