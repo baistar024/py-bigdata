@@ -15,7 +15,7 @@ print(isinstance(1, set))
 print(isinstance(1, tuple))
 print(isinstance(1, list))
 s1 = "Hello, world"
-
+print(c1.real, c1.imag)
 
 li = "2020.9.09"
 print(li.replace('.','/'))
