@@ -34,6 +34,7 @@ class NoteBook(wx.Frame):
 
     def onExit(self, event):
         print("onExit application")
+        self.Close()
 
     def onOpenfile(self, event):
         print("open a file to edit")
