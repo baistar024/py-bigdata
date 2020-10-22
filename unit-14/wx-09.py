@@ -1,4 +1,4 @@
-import wx
+import wx, os
 
 class NoteBook(wx.Frame):
     def __init__(self, parent = None, title = "NoteBook"):
@@ -38,8 +38,28 @@ class NoteBook(wx.Frame):
 
     def onOpenfile(self, event):
         print("open a file to edit")
+        self.dirname = ''
+        dlg = wx.FileDialog(self, "Choose a file", self.dirname, "", "*.*", wx.FD_OPEN)
+        if dlg.ShowModal() == wx.ID_OK:
+            self.filename = dlg.GetFilename()
+            self.dirname = dlg.GetDirectory()
+            print(os.path.join(self.dirname, self.filename))
+            f = open(os.path.join(self.dirname, self.filename), "r")
+            self.txteditor.SetValue(f.read())
+            f.close()
+        dlg.Destroy()
 
 
 app = wx.App(False)
 win = NoteBook()
 app.MainLoop()
+
+self.dirname = ''
+dlg = wx.FileDialog(self, "Choose a file", self.dirname, "", "*.*", wx.FD_OPEN)
+if dlg.ShowModal() == wx.ID_OK:
+    self.filename = dlg.GetFilename()
+    self.dirname = dlg.GetDirectory()
+    f = open(os.path.join(self.dirname, self.filename), 'r')
+    self.control.SetValue(f.read())
+    f.close()
+dlg.Destroy()
