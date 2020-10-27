@@ -1,7 +1,14 @@
 import wx
-import wx.adv as adv
+
+class MyFrame(wx.Frame):
+    def __init__(self, parent=None, title="wxpython Demo"):
+        wx.Frame.__init__(self, parent=parent, title=title)
+        self.Show()
+
+
+
+
+
 app=wx.App(False)
-frame=wx.Frame(None,wx.ID_ANY,"adv.calendar")
-advcalend=adv.CalendarCtrl(frame, )
-frame.Show()
+frame=MyFrame()
 app.MainLoop()
